@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+    <OM_Category>Optimization: Meats - C# Edition</OM_Category>
+    <OM_restart_required>NOTE: requires a restart for the changes to take effect.</OM_restart_required>
+    <OM_animal_setting>Allow animal meat optimization</OM_animal_setting>
+    <OM_alien_setting>Allow alien meat optimization (for race mods)</OM_alien_setting>
+    <OM_fish_setting>Allow fish meat optimization (for Vanilla Fishing Expanded)</OM_fish_setting>
+    <OM_debug_setting>Debug mode</OM_debug_setting>
+
+    <!-- VFE-->
+    <OM_smallFishLabel>small fish</OM_smallFishLabel>
+    <OM_mediumFishLabel>medium fish</OM_mediumFishLabel>
+    <OM_largeFishLabel>large fish</OM_largeFishLabel>
+</LanguageData>

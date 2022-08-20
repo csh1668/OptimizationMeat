@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Patch>
+    <Operation Class="PatchOperationFindMod">
+        <mods>
+			<li>Vanilla Achievements Expanded</li>
+            <li>Vanilla Fishing Expanded</li>
+		</mods>
+
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
+                <li Class="PatchOperationReplace">
+                    <xpath>Defs/AchievementsExpanded.AchievementDef[defName="VCE_AchievementFeelingALittleShellfish"]/tracker/includeingredient</xpath>
+					<value>
+						<includeingredient>VCEF_RawSalmon</includeingredient>
+					</value>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+</Patch>

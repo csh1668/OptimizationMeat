@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ModMetaData>
+	<name>Optimization: Meats - C# Edition</name>
+	<author>SeoHyeon</author>
+	<packageId>seohyeon.OptimizationMeats</packageId>
+	<supportedVersions>
+		<li>1.2</li>
+		<li>1.3</li>
+	</supportedVersions>
+	<description>
+This mod reduces the meat variety in the game.
+
+This mod was made by SeoHyeon, inspired by Optimization: Meats made by owlchemist.
+	</description>
+	<modDependencies>
+		<li>
+			<packageId>brrainz.harmony</packageId>
+			<displayName>Harmony</displayName>
+			<steamWorkshopUrl>steam://url/CommunityFilePage/2009463077</steamWorkshopUrl>
+			<downloadUrl>https://github.com/pardeike/HarmonyRimWorld/releases/latest</downloadUrl>
+		</li>
+	</modDependencies>
+	<loadAfter>
+		<li>brrainz.harmony</li>
+        <li>Ludeon.RimWorld</li>
+		<li>unlimitedhugs.hugslib</li>
+		<li>VanillaExpanded.VCookE</li>
+		<li>simmin.animalsforage</li>
+		<li>mlie.animalsforagepatches</li>
+		<li>milsu.rimwaldo.vanilla</li>
+    </loadAfter>
+	<incompatibleWith>
+		<li>brucethemoose.optimizationmeats</li>
+		<li>owlchemist.optimizationmeats</li>
+	</incompatibleWith>
+</ModMetaData>

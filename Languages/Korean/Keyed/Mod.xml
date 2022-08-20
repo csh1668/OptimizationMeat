@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+    <OM_Category>최적화: 고기 - C# Edition</OM_Category>
+    <OM_restart_required>주의: 변경 사항이 적용되기 위해서는 재시작을 요구합니다.</OM_restart_required>
+    <OM_animal_setting>동물 고기 최적화 활성화</OM_animal_setting>
+    <OM_alien_setting>외계인 고기 최적화 활성화 (종족 모드)</OM_alien_setting>
+    <OM_fish_setting>생선 고기 최적화 활성화 (Vanilla Fishing Expanded)</OM_fish_setting>
+    <OM_debug_setting>디버그 모드</OM_debug_setting>
+
+    <!-- VFE-->
+    <OM_smallFishLabel>소형 물고기</OM_smallFishLabel>
+    <OM_mediumFishLabel>중형 물고기</OM_mediumFishLabel>
+    <OM_largeFishLabel>대형 물고기</OM_largeFishLabel>
+</LanguageData>

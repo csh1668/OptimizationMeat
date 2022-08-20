@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<Patch>
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>Animals Forage - Patches</li>
+			<li>Legacy Ark</li>
+		</mods>
+
+		<match Class="PatchOperationSequence">
+			<success>Always</success>
+			<operations>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/ThingDef[defName="CoralSnake"]/comps/li[@Class="AnimalBehaviours.CompProperties_DigWhenHungry"]/customThingToDig</xpath>
+					<value>
+						<customThingToDig>Meat_Cow</customThingToDig>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/ThingDef[defName="Cottonmouth"]/comps/li[@Class="AnimalBehaviours.CompProperties_DigWhenHungry"]/customThingToDig</xpath>
+					<value>
+						<customThingToDig>Meat_Cow</customThingToDig>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/ThingDef[defName="TimberRattler"]/comps/li[@Class="AnimalBehaviours.CompProperties_DigWhenHungry"]/customThingToDig</xpath>
+					<value>
+						<customThingToDig>Meat_Cow</customThingToDig>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/ThingDef[defName="Copperhead"]/comps/li[@Class="AnimalBehaviours.CompProperties_DigWhenHungry"]/customThingToDig</xpath>
+					<value>
+						<customThingToDig>Meat_Cow</customThingToDig>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/ThingDef[defName="RedRattler"]/comps/li[@Class="AnimalBehaviours.CompProperties_DigWhenHungry"]/customThingToDig</xpath>
+					<value>
+						<customThingToDig>Meat_Cow</customThingToDig>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/ThingDef[defName="ScarletKingSnake"]/comps/li[@Class="AnimalBehaviours.CompProperties_DigWhenHungry"]/customThingToDig</xpath>
+					<value>
+						<customThingToDig>Meat_Cow</customThingToDig>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/ThingDef[defName="YellowViper"]/comps/li[@Class="AnimalBehaviours.CompProperties_DigWhenHungry"]/customThingToDig</xpath>
+					<value>
+						<customThingToDig>Meat_Cow</customThingToDig>
+					</value>
+				</li>
+			</operations>
+		</match>
+	</Operation>
+</Patch>
