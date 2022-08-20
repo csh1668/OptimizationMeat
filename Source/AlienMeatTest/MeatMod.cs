@@ -20,7 +20,7 @@ namespace AlienMeatTest
             MeatLogger.debugMode = MeatModSettings.DebugMode;
 
 
-            Harmony h = new Harmony("com.seohyeon.optimization.meat");
+            var h = new Harmony("com.seohyeon.optimization.meat");
             h.PatchAll(Assembly.GetExecutingAssembly());
         } 
 
