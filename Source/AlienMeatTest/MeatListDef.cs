@@ -15,12 +15,5 @@ namespace AlienMeatTest
     {
         public List<string> meats;
         public List<string> races;
-        /*
-        TODO: Example of Defs folder structure
-        Defs/MeatListDef/Def.xml 
-        ...
-        in Def.xml >> <AlienMeatTest.MeatListDef> ... <defName>WhiteList</defName> ... <lit><li>Meat_Cow</li></lst>
-        Compatibility patch from other mods is much easier. More 'RW Style'.
-        */
     }
 }
