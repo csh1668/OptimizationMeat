@@ -13,12 +13,11 @@ namespace AlienMeatTest
 {
     public class MeatMod : Mod
     {
-        internal MeatModSettings settings;
+        internal static MeatModSettings settings;
+        internal static readonly string LogPrefix = "Optimization: Meats: ";
         public MeatMod(ModContentPack content) : base(content)
         {
             settings = GetSettings<MeatModSettings>();
-            MeatLogger.debugMode = MeatModSettings.DebugMode;
-
 
             var h = new Harmony("com.seohyeon.optimization.meat");
             h.PatchAll(Assembly.GetExecutingAssembly());

@@ -5,22 +5,10 @@
         <label>White List (Optimizations: Meat)</label>
 
         <meats>
-            <!-- Moyo mods-->
             <li>Meat_Alien_Moyo</li>
-            <!-- A Rimworld of Magic -->
-            <li>RawMagicyte</li>
-            <!-- Typhon -->
-            <li>TyphonOrgan</li>
-            <!-- Skaven-->
-            <li>Meat_Alien_Skaven</li>
-            <!-- Mooloh's DND Menagerie-->
-            <li>BlocksSandstone</li>
-            <!-- Medieval Overhaul-->
-            <li>DankPyon</li>
-            <li>RawFungus</li>
         </meats>
         <races>
-            
+
         </races>
     </AlienMeatTest.MeatListDef>
 </Defs>
