@@ -21,7 +21,13 @@ namespace AlienMeatTest
     public class Patch_ThingDefGenerator_Meat
     {
         public static List<string> Records = new List<string>();
-        internal static string cowMeatLabel = string.Empty;
+
+        /// <summary>
+        /// [i, j]:<br />
+        /// i == 0 -> Meat_Cow  1 -> Meat_Human<br />
+        /// j == 0 -> label     1 -> description
+        /// </summary>
+        internal static string[,] StringsCached = new string[2,2];
         internal static List<string> SourceRacesCached = new List<string>();
 
         public static IEnumerable<ThingDef> Postfix(IEnumerable<ThingDef> values)
@@ -38,10 +44,13 @@ namespace AlienMeatTest
                 {
                     case "Meat_Cow":
                         cowMeat = thingDef;
-                        cowMeatLabel = cowMeat.label;
+                        StringsCached[0, 0] = cowMeat.label;
+                        StringsCached[1, 0] = cowMeat.description;
                         break;
                     case "Meat_Human":
                         humanMeat = thingDef;
+                        StringsCached[1, 0] = humanMeat.label;
+                        StringsCached[1, 1] = humanMeat.description;
                         break;
                     case "Meat_Megaspider":
                         insectMeat = thingDef;
@@ -51,6 +60,8 @@ namespace AlienMeatTest
 
             if (cowMeat == null || humanMeat == null || insectMeat == null)
             {
+                Log.Error(MeatMod.LogPrefix +
+                          "Cannot find base meat def (Cow, Human, Insect). Did you removed these meats by Cherry Picker?");
                 foreach (var thingDef in lst)
                 {
                     yield return thingDef;
