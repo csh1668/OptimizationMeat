@@ -22,6 +22,7 @@ namespace AlienMeatTest
     {
         public static List<string> Records = new List<string>();
         internal static string cowMeatLabel = string.Empty;
+        internal static List<string> SourceRacesCached = new List<string>();
 
         public static IEnumerable<ThingDef> Postfix(IEnumerable<ThingDef> values)
         {
@@ -96,7 +97,7 @@ namespace AlienMeatTest
                         sourceRace.race.meatDef = cowMeat;
                         defsByName.Add(thingDef.defName, cowMeat);
                     }
-                    sourceRace.ResolveReferences();
+                    SourceRacesCached.Add(sourceRace.defName);
 
                     Records.Add(record);
                 }

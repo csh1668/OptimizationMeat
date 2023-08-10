@@ -15,6 +15,12 @@ namespace AlienMeatTest
             // Preserve the original label (raw meat)
             DefDatabase<ThingDef>.GetNamed("Meat_Cow").label = Patch_ThingDefGenerator_Meat.cowMeatLabel;
 
+            foreach (var thingDef in DefDatabase<ThingDef>.AllDefs)
+            {
+                if (Patch_ThingDefGenerator_Meat.SourceRacesCached.Contains(thingDef.defName))
+                    thingDef.ResolveReferences();
+            }
+
             if (MeatModSettings.DebugMode)
             {
                 Patch_ThingDefGenerator_Meat.Records.Sort();
