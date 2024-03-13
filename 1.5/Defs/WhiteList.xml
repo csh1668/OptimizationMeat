@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+    <AlienMeatTest.MeatListDef>
+        <defName>WhiteList</defName>
+        <label>White List (Optimizations: Meat)</label>
+
+        <meats>
+            <li>Meat_Alien_Moyo</li>
+        </meats>
+        <races>
+
+        </races>
+    </AlienMeatTest.MeatListDef>
+</Defs>
