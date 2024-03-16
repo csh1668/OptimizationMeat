@@ -1,11 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <LanguageData>
-    <OM_Category>최적화: 고기 - C# Edition</OM_Category>
+    <OM_Category>최적화: 고기</OM_Category>
+
+    <OM_reset_policy>고기 정책 초기화</OM_reset_policy>
+    <OM_reset_done>초기화 완료!</OM_reset_done>
+    <OM_settings_note>고기 정책은 기본 상태로 두는 것을 추천드립니다.\n수동으로 변경해야 하는 예외적인 상황에서만 사용하세요.</OM_settings_note>
     <OM_restart_required>주의: 변경 사항이 적용되기 위해서는 재시작을 요구합니다.</OM_restart_required>
-    <OM_animal_setting>동물 고기 최적화 활성화</OM_animal_setting>
-    <OM_alien_setting>외계인 고기 최적화 활성화 (종족 모드)</OM_alien_setting>
-    <OM_fish_setting>생선 고기 최적화 활성화 (Vanilla Fishing Expanded)</OM_fish_setting>
+    <OM_search>찾기: </OM_search>
     <OM_debug_setting>디버그 모드</OM_debug_setting>
+
+    <OM_column_automatic>자동</OM_column_automatic>
+    <OM_column_vanilla>바닐라</OM_column_vanilla>
+    <OM_column_raw_meat>날고기로</OM_column_raw_meat>
+    <OM_column_human_meat>인간 고기로</OM_column_human_meat>
+    <OM_column_insect_meat>곤충 고기로</OM_column_insect_meat>
+
+    <OM_note_useMeatFrom>이 race의 고기 정의는 다른 race의 고기 정의에 의존합니다: {0}</OM_note_useMeatFrom>
+    <OM_note_specialMeat>이 race의 고기는 이 모드에서 특별하기 때문에 수정할 수 없습니다.</OM_note_specialMeat>
+    <OM_note_whitelist>이 race의 고기는 모더들이 추가한 화이트리스트에 의해 통합으로부터 자동으로 제외됩니다.</OM_note_whitelist>
+
 
     <!-- VFE-->
     <OM_smallFishLabel>소형 물고기</OM_smallFishLabel>

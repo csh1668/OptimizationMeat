@@ -1,11 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <LanguageData>
     <OM_Category>Optimization: Meats - C# Edition</OM_Category>
+
+    <OM_reset_policy>Reset the meat policy</OM_reset_policy>
+    <OM_reset_done>reset done!</OM_reset_done>
+    <OM_settings_note>It is recommended to leave the meat policy in its default state.\nOnly use it in exceptional cases where you need to set it manually.</OM_settings_note>
     <OM_restart_required>NOTE: requires a restart for the changes to take effect.</OM_restart_required>
-    <OM_animal_setting>Allow animal meat optimization</OM_animal_setting>
-    <OM_alien_setting>Allow alien meat optimization (for race mods)</OM_alien_setting>
-    <OM_fish_setting>Allow fish meat optimization (for Vanilla Fishing Expanded)</OM_fish_setting>
+    <OM_search>Search: </OM_search>
     <OM_debug_setting>Debug mode</OM_debug_setting>
+
+    <OM_column_automatic>Automatic</OM_column_automatic>
+    <OM_column_vanilla>Vanilla</OM_column_vanilla>
+    <OM_column_raw_meat>To raw meat</OM_column_raw_meat>
+    <OM_column_human_meat>To human meat</OM_column_human_meat>
+    <OM_column_insect_meat>To insect meat</OM_column_insect_meat>
+
+    <OM_note_useMeatFrom>This race's meat def depends on the other race's meat def: {0}</OM_note_useMeatFrom>
+    <OM_note_specialMeat>This race's meat is considered special in this mod and cannot be modified.</OM_note_specialMeat>
+    <OM_note_whitelist>This race's meat is automatically ignored from the merge by the whitelist added by modders.</OM_note_whitelist>
 
     <!-- VFE-->
     <OM_smallFishLabel>small fish</OM_smallFishLabel>

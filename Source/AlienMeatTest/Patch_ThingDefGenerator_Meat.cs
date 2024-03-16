@@ -20,15 +20,15 @@ namespace AlienMeatTest
     [HarmonyPatch(typeof(ThingDefGenerator_Meat)), HarmonyPatch("ImpliedMeatDefs")]
     public class Patch_ThingDefGenerator_Meat
     {
-        public static List<string> Records = new List<string>();
+        internal static List<string> DebugRecords = new List<string>();
 
-        /// <summary>
-        /// [i, j]:<br />
-        /// i == 0 -> Meat_Cow  1 -> Meat_Human<br />
-        /// j == 0 -> label     1 -> description
-        /// </summary>
-        internal static string[,] StringsCached = new string[2,2];
-        internal static List<string> SourceRacesCached = new List<string>();
+        internal static string CowMeatLabelCached = null;
+        internal static string CowMeatDescriptionCached = null;
+        internal static string HumanMeatLabelCached = null;
+        internal static string HumanMeatDescriptionCached = null;
+
+        internal static HashSet<string> SourceRacesCached = new HashSet<string>();
+        internal static MeatListDef WhiteList;
 
         public static IEnumerable<ThingDef> Postfix(IEnumerable<ThingDef> values)
         {
@@ -36,7 +36,8 @@ namespace AlienMeatTest
             ThingDef cowMeat = null, humanMeat = null, insectMeat = null;
 
             var defsByName = (Dictionary<string, ThingDef>)AccessTools.Field(typeof(DefDatabase<ThingDef>), "defsByName").GetValue(null);
-            var whiteList = DefDatabase<MeatListDef>.GetNamed("WhiteList");
+            WhiteList = DefDatabase<MeatListDef>.GetNamed("WhiteList");
+            var meatPolicy = MeatModSettings.MeatPolicy;
             foreach (var thingDef in lst)
             {
                 var s = thingDef.defName;
@@ -44,13 +45,13 @@ namespace AlienMeatTest
                 {
                     case "Meat_Cow":
                         cowMeat = thingDef;
-                        StringsCached[0, 0] = cowMeat.label;
-                        StringsCached[1, 0] = cowMeat.description;
+                        CowMeatLabelCached = cowMeat.label;
+                        CowMeatDescriptionCached = cowMeat.description;
                         break;
                     case "Meat_Human":
                         humanMeat = thingDef;
-                        StringsCached[1, 0] = humanMeat.label;
-                        StringsCached[1, 1] = humanMeat.description;
+                        HumanMeatLabelCached = humanMeat.label;
+                        HumanMeatDescriptionCached = humanMeat.description;
                         break;
                     case "Meat_Megaspider":
                         insectMeat = thingDef;
@@ -61,7 +62,7 @@ namespace AlienMeatTest
             if (cowMeat == null || humanMeat == null || insectMeat == null)
             {
                 Log.Error(MeatMod.LogPrefix +
-                          "Cannot find base meat def (Cow, Human, Insect). Did you removed these meats by Cherry Picker?");
+                          "Cannot find base meat def of (Cow or Human or Insect). Did you removed these meats in some weird way?");
                 foreach (var thingDef in lst)
                 {
                     yield return thingDef;
@@ -71,7 +72,7 @@ namespace AlienMeatTest
 
             foreach (var thingDef in lst)
             {
-                string record = thingDef.defName;
+                string debugRecord = thingDef.defName;
                 if (thingDef.defName == cowMeat.defName || thingDef.defName == humanMeat.defName || thingDef.defName == insectMeat.defName)
                 {
                     yield return thingDef;
@@ -79,38 +80,63 @@ namespace AlienMeatTest
                 else
                 {
                     var sourceRace = thingDef.ingestible.sourceDef;
-                    record += $"(from {sourceRace.defName})";
-                    if (whiteList.meats.Contains(thingDef.defName))
+                    debugRecord += $"(from {sourceRace.defName})";
+                    if (meatPolicy.TryGetValue(sourceRace.defName, out int policy) && policy > 0)
                     {
-                        record += "-> WhiteListed by meats";
+                        switch (policy)
+                        {
+                            case 1:
+                                debugRecord += "-> Ignored by policy 1";
+                                yield return thingDef;
+                                break;
+                            case 2:
+                                debugRecord += "-> CowMeat by policy 2";
+                                sourceRace.race.meatDef = cowMeat;
+                                defsByName.Add(thingDef.defName, cowMeat);
+                                break;
+                            case 3:
+                                debugRecord += "-> HumanMeat by policy 3";
+                                sourceRace.race.meatDef = humanMeat;
+                                defsByName.Add(thingDef.defName, humanMeat);
+                                break;
+                            case 4:
+                                debugRecord += "-> InsectMeat by policy 4";
+                                sourceRace.race.meatDef = insectMeat;
+                                defsByName.Add(thingDef.defName, insectMeat);
+                                break;
+                        }
+                    }
+                    else if (WhiteList.meats.Contains(thingDef.defName))
+                    {
+                        debugRecord += "-> WhiteListed by meats";
                         yield return thingDef;
                     }
-                    else if (whiteList.races.Contains(sourceRace.defName))
+                    else if (WhiteList.races.Contains(sourceRace.defName))
                     {
-                        record += "-> WhiteListed by races";
+                        debugRecord += "-> WhiteListed by races";
                         yield return thingDef;
                     }
                     else if (sourceRace.race.Humanlike)
                     {
-                        record += "-> HumanMeat";
+                        debugRecord += "-> HumanMeat";
                         sourceRace.race.meatDef = humanMeat;
                         defsByName.Add(thingDef.defName, humanMeat);
                     }
                     else if (sourceRace.race.FleshType == FleshTypeDefOf.Insectoid)
                     {
-                        record += "-> InsectMeat";
+                        debugRecord += "-> InsectMeat";
                         sourceRace.race.meatDef = insectMeat;
                         defsByName.Add(thingDef.defName, insectMeat);
                     }
                     else
                     {
-                        record += "-> CowMeat";
+                        debugRecord += "-> CowMeat";
                         sourceRace.race.meatDef = cowMeat;
                         defsByName.Add(thingDef.defName, cowMeat);
                     }
                     SourceRacesCached.Add(sourceRace.defName);
 
-                    Records.Add(record);
+                    DebugRecords.Add(debugRecord);
                 }
             }
             cowMeat.ResolveReferences();
