@@ -29,6 +29,7 @@ namespace AlienMeatTest
 
         internal static HashSet<string> SourceRacesCached = new HashSet<string>();
         internal static MeatListDef WhiteList;
+        internal static List<string> WhiteListMeatRecord = new List<string>();
 
         public static IEnumerable<ThingDef> Postfix(IEnumerable<ThingDef> values)
         {
@@ -109,6 +110,7 @@ namespace AlienMeatTest
                     else if (WhiteList.meats.Contains(thingDef.defName))
                     {
                         debugRecord += "-> WhiteListed by meats";
+                        WhiteListMeatRecord.Add(sourceRace.defName);
                         yield return thingDef;
                     }
                     else if (WhiteList.races.Contains(sourceRace.defName))

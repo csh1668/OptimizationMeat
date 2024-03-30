@@ -137,6 +137,17 @@ namespace AlienMeatTest
                     continue;
                 }
 
+                if (Patch_ThingDefGenerator_Meat.WhiteListMeatRecord.Contains(curRace.defName))
+                {
+                    var newLabelRect = labelRect;
+                    newLabelRect.x += labelRect.width;
+                    newLabelRect.width += 50f;
+                    Widgets.Label(newLabelRect,
+                        $"OM_note_whitelist_meat".Translate());
+                    GUI.EndGroup();
+                    continue;
+                }
+
                 var curPolicy = MeatPolicy[curRace.defName];
                 if (Widgets.RadioButton(labelRect.width + labelRect.x - Widgets.RadioButtonSize / 2, (entryHeight - Widgets.RadioButtonSize) / 2, curPolicy == 0))
                 {

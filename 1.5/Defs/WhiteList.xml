@@ -6,6 +6,7 @@
 
         <meats>
             <li>Meat_Alien_Moyo</li>
+            <li MayRequire="Ludeon.RimWorld.Anomaly">Meat_Twisted</li>
         </meats>
         <races>
 
