@@ -16,6 +16,7 @@
     <OM_column_insect_meat>곤충 고기로</OM_column_insect_meat>
 
     <OM_note_useMeatFrom>이 생명체의 고기 정의는 다른 생명체의 고기 정의에 의존합니다: {0}</OM_note_useMeatFrom>
+    <OM_note_specificMeatDef>이 생명체의 고기 정의는 특정한 고기 정의로 지정됩니다: {0}</OM_note_specificMeatDef>
     <OM_note_specialMeat>이 생명체의 고기는 이 모드에서 특별하기 때문에 수정할 수 없습니다.</OM_note_specialMeat>
     <OM_note_whitelist>이 생명체의 고기는 모더들이 추가한 화이트리스트에 의해 통합으로부터 자동으로 제외됩니다. (race)</OM_note_whitelist>
     <OM_note_whitelist_meat>이 생명체의 고기는 모더들이 추가한 화이트리스트에 의해 통합으로부터 자동으로 제외됩니다. (meat)</OM_note_whitelist_meat>

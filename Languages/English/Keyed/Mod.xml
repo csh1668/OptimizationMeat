@@ -16,6 +16,7 @@
     <OM_column_insect_meat>To insect meat</OM_column_insect_meat>
 
     <OM_note_useMeatFrom>This race's meat def depends on the other race's meat def: {0}</OM_note_useMeatFrom>
+    <OM_note_specificMeatDef>This race's meat def is specified to be: {0}</OM_note_specificMeatDef>
     <OM_note_specialMeat>This race's meat is considered special in this mod and cannot be modified.</OM_note_specialMeat>
     <OM_note_whitelist>This race's meat is automatically ignored from the merge by the whitelist added by modders. (by race)</OM_note_whitelist>
     <OM_note_whitelist_meat>This race's meat is automatically ignored from the merge by the whitelist added by modders. (by meat)</OM_note_whitelist_meat>

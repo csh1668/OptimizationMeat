@@ -115,6 +115,17 @@ namespace AlienMeatTest
                     GUI.EndGroup();
                     continue;
                 }
+
+                if (curRace.race.specificMeatDef != null)
+                {
+                    var newLabelRect = labelRect;
+                    newLabelRect.x += labelRect.width;
+                    newLabelRect.width += 50f;
+                    Widgets.Label(newLabelRect,
+                        $"OM_note_specificMeatDef".Translate(FormmatedString(curRace.race.specificMeatDef)));
+                    GUI.EndGroup();
+                    continue;
+                }
                 if (curRace.defName == "Human" || curRace.defName == "Cow" || curRace.defName == "Megaspider")
                 {
                     var newLabelRect = labelRect;
