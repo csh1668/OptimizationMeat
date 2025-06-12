@@ -2,6 +2,8 @@
 <LanguageData>
     <OM_Category>Optimization: Meats - C# Edition</OM_Category>
 
+    <OM_warning_load_existing_saves>Warning: Adding "Optimization: Meat - C# Edition" to an existing save may cause errors, see the workshop page for more information.</OM_warning_load_existing_saves>
+
     <OM_reset_policy>Reset the meat policy</OM_reset_policy>
     <OM_reset_done>reset done!</OM_reset_done>
     <OM_settings_note>It is recommended to leave the meat policy in its default state.\nOnly use it in exceptional cases where you need to set it manually.</OM_settings_note>

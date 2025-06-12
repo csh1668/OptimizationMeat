@@ -70,19 +70,22 @@ namespace AlienMeatTest
             listingRight.End();
 
             var entryHeight = 40f;
-
-            var matchingRaces = AllRaces.Where(x => Matches(FormmatedString(x), searchKeyword)).ToList();
-
-            var cntEntry = matchingRaces.Count;
             var outRect = new Rect(0f, 120f, inRect.width - 10f, inRect.height - 120f);
-            var listRect = new Rect(0f, 0f, outRect.width - 50f, entryHeight * cntEntry);
-            var labelRect = new Rect(entryHeight + 10f, 0f, listRect.width / 2 - 100f, entryHeight);
-            var div = (listRect.width - (listRect.width / 2 - 100f)) / 5;
-            Widgets.Label(new Rect(0, outRect.y - 22f, "OM_search".Translate().GetWidthCached(), 22f), "OM_search".Translate());
+            var labelRect = new Rect(entryHeight + 10f, 0f, (outRect.width - 50f)/ 2 - 100f, entryHeight);
             searchKeyword =
                 Widgets.TextArea(
                     new Rect("OM_search".Translate().GetWidthCached(), outRect.y - 22f,
                         (outRect.width - labelRect.width - labelRect.x) / 2, 22f), searchKeyword);
+
+            var matchingRaces = AllRaces.Where(x => Matches(FormmatedString(x), searchKeyword)).ToList();
+
+            var cntEntry = matchingRaces.Count;
+            
+            var listRect = new Rect(0f, 0f, outRect.width - 50f, entryHeight * cntEntry);
+            
+            var div = (listRect.width - (listRect.width / 2 - 100f)) / 5;
+            Widgets.Label(new Rect(0, outRect.y - 22f, "OM_search".Translate().GetWidthCached(), 22f), "OM_search".Translate());
+
             Widgets.Label(new Rect(labelRect.width + labelRect.x - "OM_column_automatic".Translate().GetWidthCached() / 2, outRect.y - 22f, div, 22f), "OM_column_automatic".Translate());
             Widgets.Label(new Rect(labelRect.width + labelRect.x + div - "OM_column_vanilla".Translate().GetWidthCached() / 2, outRect.y - 22f, div, 22f), "OM_column_vanilla".Translate());
             Widgets.Label(new Rect(labelRect.width + labelRect.x + div * 2 - "OM_column_raw_meat".Translate().GetWidthCached() / 2, outRect.y - 22f, div, 22f), "OM_column_raw_meat".Translate());
